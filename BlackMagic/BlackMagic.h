@@ -1,5 +1,11 @@
 #pragma once
 
+#include "ComponentCounter.h"
+
+namespace ComponentType {
+	unsigned count() { return _ComponentCounter::getCounter(); }
+};
+
 #define _IMPL_CONCAT(x, y) x##y
 #define _MACRO_CONCAT(x, y) _IMPL_CONCAT(x, y)
 #define _INC_COMPONENT_COUNTER(unique_id) namespace {_ComponentCounter _MACRO_CONCAT(counter, unique_id);}

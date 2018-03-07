@@ -60,8 +60,7 @@ int main() {
 		}
 
 	}
-
-	std::cout << "Total amount of component types: " << Component::count() << "\n";
+	std::cout << "Total amount of component types: " << ComponentType::count() << "\n";
 
 
 	testStatic<INT>();
