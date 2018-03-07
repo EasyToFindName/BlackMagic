@@ -19,19 +19,19 @@ END_COMPONENT
 
 template<typename TComponent>
 void testStatic() {
-	if(TComponent::getId() == ComponentTypes::Collider) {
+	if(TComponent::getId() == ComponentType::Collider) {
 		std::cout << "I'm collider\n";
 	}
 
-	else if(TComponent::getId() == ComponentTypes::Reactor) {
+	else if(TComponent::getId() == ComponentType::Reactor) {
 		std::cout << "I'm reactor\n";
 	}
 
-	else if(TComponent::getId() == ComponentTypes::T1) {
+	else if(TComponent::getId() == ComponentType::T1) {
 		std::cout << "I'm T1\n";
 	}
 
-	else if(TComponent::getId()== ComponentTypes::INT) {
+	else if(TComponent::getId()== ComponentType::INT) {
 		std::cout <<"I'm INT\n";
 	}
 }
@@ -44,18 +44,18 @@ int main() {
 	Component* a[] = { &c, &r, &c, &t, &i};
 
 	for(int i = 0; i < sizeof(a) / sizeof(size_t); ++i) {
-		if(a[i]->getType() == ComponentTypes::Collider) {
+		if(a[i]->getType() == ComponentType::Collider) {
 			std::cout << "I'm collider\n";
 		}
-		else if(a[i]->getType() == ComponentTypes::Reactor) {
+		else if(a[i]->getType() == ComponentType::Reactor) {
 			std::cout << "I'm reactor\n";
 		}
 
-		else if(a[i]->getType() == ComponentTypes::T1) {
+		else if(a[i]->getType() == ComponentType::T1) {
 			std::cout << "I'm T1\n";
 		}
 
-		else if(a[i]->getType() == ComponentTypes::INT) {
+		else if(a[i]->getType() == ComponentType::INT) {
 			std::cout <<"I'm INT\n";
 		}
 
