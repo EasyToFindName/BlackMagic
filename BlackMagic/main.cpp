@@ -9,33 +9,66 @@ public:
 private:
 END_COMPONENT
 
-COMPONENT(T2)
+COMPONENT(INT)
+
 public:
+
 private:
+
 END_COMPONENT
+
+template<typename TComponent>
+void testStatic() {
+	if(TComponent::getId() == ComponentTypes::Collider) {
+		std::cout << "I'm collider\n";
+	}
+
+	else if(TComponent::getId() == ComponentTypes::Reactor) {
+		std::cout << "I'm reactor\n";
+	}
+
+	else if(TComponent::getId() == ComponentTypes::T1) {
+		std::cout << "I'm T1\n";
+	}
+
+	else if(TComponent::getId()== ComponentTypes::INT) {
+		std::cout <<"I'm INT\n";
+	}
+}
 
 int main() {
 	Collider c;
 	Reactor r;
 	T1 t;
-	Component* a[] = { &c, &r, &c, &t};
+	INT i;
+	Component* a[] = { &c, &r, &c, &t, &i};
 
 	for(int i = 0; i < sizeof(a) / sizeof(size_t); ++i) {
-		if(a[i]->getType() == COMPONENT_Collider) {
+		if(a[i]->getType() == ComponentTypes::Collider) {
 			std::cout << "I'm collider\n";
 		}
-		else if(a[i]->getType() == COMPONENT_Reactor) {
+		else if(a[i]->getType() == ComponentTypes::Reactor) {
 			std::cout << "I'm reactor\n";
 		}
 
-		else if(a[i]->getType() == COMPONENT_T1) {
+		else if(a[i]->getType() == ComponentTypes::T1) {
 			std::cout << "I'm T1\n";
+		}
+
+		else if(a[i]->getType() == ComponentTypes::INT) {
+			std::cout <<"I'm INT\n";
 		}
 
 	}
 
-	std::cout << "Total amount of component types: " << COMPONENT_COUNT;
+	std::cout << "Total amount of component types: " << Component::count() << "\n";
 
+
+	testStatic<INT>();
+	testStatic<T1>();
+	testStatic<Collider>();
+	testStatic<Reactor>();
+	
 	std::cin.get();
 	return 0;
 }

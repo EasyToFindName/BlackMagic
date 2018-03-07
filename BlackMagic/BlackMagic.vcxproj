@@ -121,6 +121,7 @@
     <ClInclude Include="BlackMagic.h" />
     <ClInclude Include="Collider.h" />
     <ClInclude Include="Component.h" />
+    <ClInclude Include="ComponentCounter.h" />
     <ClInclude Include="Reactor.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
