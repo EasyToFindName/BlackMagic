@@ -3,19 +3,25 @@
 
 #include <iostream>
 
-COMPONENT(T1)
-public:
+struct S {
+	int a;
+};
 
-private:
-END_COMPONENT
-
-COMPONENT(INT)
-
+COMPONENT_DERIVED_FROM_CLASS(T1, S)
 public:
 
 private:
 
 END_COMPONENT
+
+COMPONENT_DERIVED_FROM_COMPONENT(INT, T1)
+
+public:
+
+private:
+
+END_COMPONENT
+
 
 template<typename TComponent>
 void testStatic() {
@@ -67,6 +73,16 @@ int main() {
 	testStatic<T1>();
 	testStatic<Collider>();
 	testStatic<Reactor>();
+
+	// inheritance tests
+
+	T1 baseComponent;
+	baseComponent.a = 0;
+
+	INT derivedComponent;
+	derivedComponent.a = 1;
+
+	std::cout << baseComponent.a << " " << derivedComponent.a << "\n";
 	
 	std::cin.get();
 	return 0;
